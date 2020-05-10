@@ -9,18 +9,15 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-// parse requests of content-type - application/json
 app.use(bodyParser.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
+    res.json({ message: "Server is up!" });
 });
 
 require("./app/routes/tutorial.routes")(app);
+require("./app/routes/user.routes")(app);
 
 const db = require("./app/models");
 db.mongoose

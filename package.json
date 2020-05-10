@@ -9,10 +9,11 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.13"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon ./server.js localhost 8080"
   },
   "keywords": [],
   "author": "",
