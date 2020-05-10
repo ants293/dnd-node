@@ -1,19 +1,26 @@
-module.exports = app => {
-    const users = require("../controllers/user.controller.js");
+import { UserService } from "../services/UserService";
+import express from 'express';
+const userService = new UserService();
+const apiRouter = express.Router();
 
-    const router = require("express").Router();
+export const userRoutes = () => {
 
-    router.post("/new", users.create);
-    router.get("/", users.findAll);
-    router.get("/:id", users.findOne);
-    //router.get("/", users.findAll);
-    /*router.get("/published", tutorials.findAllPublished);
-    router.get("/:id", tutorials.findOne);
-    router.put("/:id", tutorials.update);
-    router.delete("/:id", tutorials.delete);
-    router.delete("/", tutorials.deleteAll);*/
+    apiRouter.use("/", async (req, res) => {
+
+        const { users } = await userService.findAll();
+
+        res.json({ users });
+
+        //res.send("yes");
+    });
+
+    apiRouter.post("/new", async (req, res) => {
+        const userData = req.body;
+        const { user } = await userService.create(userData);
+        return res.json({ user });
+    });
 
 
+    return apiRouter;
 
-    app.use('/api/users', router);
 }

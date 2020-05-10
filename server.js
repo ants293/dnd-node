@@ -1,6 +1,8 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+import { models } from "./app/models";
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import { routes } from "./app/routes";
 
 const app = express();
 
@@ -16,10 +18,10 @@ app.get("/", (req, res) => {
     res.json({ message: "Server is up!" });
 });
 
-require("./app/routes/tutorial.routes")(app);
-require("./app/routes/user.routes")(app);
+app.use('/api', routes());
 
-const db = require("./app/models");
+
+const db = models();
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
