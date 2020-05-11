@@ -17,7 +17,7 @@
     "rimraf": "^3.0.2"
   },
   "scripts": {
-    "start": "nodemon -r esm ./server.js localhost 8080"
+    "start": "nodemon -r esm ./server.js localhost 8081"
   },
   "keywords": [],
   "author": "",

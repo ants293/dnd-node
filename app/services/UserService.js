@@ -1,17 +1,16 @@
-const db = require("../models");
-const Users = db.users;
+import userModel from "../models/user.model";
 
 export class UserService {
     async create(userData) {
-        const newUser = new Users({
-            username: userData.body.username,
-            email: userData.body.email,
-            password: userData.body.password,
-            role: userData.body.role,
+        const newUser = new userModel({
+            username: userData.username,
+            email: userData.email,
+            password: userData.password,
+            role: userData.role,
         });
 
         try {
-            const response = await Users.save(newUser);
+            const response = await newUser.save();
 
             return response;
         } catch(error) {
@@ -23,7 +22,7 @@ export class UserService {
 
     async findAll() {
         try {
-            const users = await Users.find();
+            const users = await userModel.find();
 
             return users;
         } catch(error) {
