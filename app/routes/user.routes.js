@@ -10,12 +10,14 @@ export const userRoutes = () => {
         const user = await userService.create(userData);
 
         res.json({ user });
+        return;
     });
 
     apiRouter.use("/", async (req, res) => {
         const users = await userService.findAll();
 
         res.json({ users });
+        return;
     });
 
 
