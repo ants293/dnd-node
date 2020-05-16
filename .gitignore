@@ -1,5 +1,6 @@
 /.idea/
 /node_modules/
 /app/config/db.config.ts
+/app/config/db.config.js
 /dist/
 /server.js
