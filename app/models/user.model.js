@@ -1,26 +1,22 @@
-import mongoose from 'mongoose';
-
-const userSchema = new mongoose.Schema(
-    {
-        username: {
-            type: String,
-            unique: true,
-            index: true
-        },
-        email: {
-            type: String,
-            unique: true,
-            index: true
-        },
-        password: String,
-        role: {
-            type: String,
-            enum: ['ADMIN', 'USER']
-        },
+"use strict";
+exports.__esModule = true;
+var mongoose_1 = require("mongoose");
+var userSchema = new mongoose_1.Schema({
+    username: {
+        type: String,
+        unique: true,
+        index: true
     },
-    { timestamps: true }
-)
-
-const userModel = mongoose.model('user', userSchema);
-
-export default userModel;
+    email: {
+        type: String,
+        unique: true,
+        index: true
+    },
+    password: String,
+    role: {
+        type: String,
+        "enum": ['ADMIN', 'USER']
+    }
+}, { timestamps: true });
+var userModel = mongoose_1["default"].model('user', userSchema);
+exports["default"] = userModel;

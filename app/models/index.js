@@ -1,16 +1,13 @@
-import userModel from "./user.model";
-
-const dbConfig = require("../config/db.config.js");
-import mongoose from 'mongoose';
-
-export const models = () => {
-    mongoose.Promise = global.Promise;
-    const allModels = {};
-
-    allModels.mongoose = mongoose;
-    allModels.url = dbConfig.url;
-
-    allModels.users = userModel();
-
+"use strict";
+exports.__esModule = true;
+var user_model_1 = require("./user.model");
+var db_config_1 = require("../config/db.config");
+var mongoose_1 = require("mongoose");
+exports.models = function () {
+    var allModels = {};
+    mongoose_1["default"].Promise = global.Promise;
+    allModels.mongoose = mongoose_1["default"];
+    allModels.url = db_config_1.dbConfig.url;
+    allModels.users = new user_model_1["default"]();
     return allModels;
-}
+};
