@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-    res.json({ message: "Server is up!" });
+    res.json({ message: "Server is usadsadasdasdp!" });
 });
 
 app.use('/api', routes());
@@ -29,7 +29,7 @@ db.mongoose
         useUnifiedTopology: true
     })
     .then(() => {
-        console.log("Connected to the database!");
+        console.log("Connected to the databasdfsdfsdfdsfdsfe!");
     })
     .catch((err: any) => {
         console.log("Cannot connect to the database!", err);
